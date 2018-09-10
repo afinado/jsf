@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'war'
+    id 'org.gretty' version '2.2.0'
+}
+
+ext {
+	eclipselinkVersion = '2.7.3'
+	tomcatVersion = '9.0.11'
+}
+
+archivesBaseName = 'comedians'
+version = '1' 
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src']
+		}
+		resources {
+			srcDirs = ['src']
+		}
+	}
+}
+
+webAppDirName = 'WebContent'
+
+repositories {
+	jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile 'com.sun.faces:jsf-api:2.2.18'
+    providedCompile 'com.sun.faces:jsf-impl:2.2.18'
+    compile 'jstl:jstl:1.2'
+	compile group: 'org.jboss.weld.servlet', name: 'weld-servlet', version: '3.0.0.Alpha1'         
+	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: "${tomcatVersion}"
+	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: "${tomcatVersion}"
+	compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: "${tomcatVersion}"
+	compile group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
+	compile group: 'javax.transaction', name: 'jta', version: '1.1'
+	compile group: 'org.eclipse.persistence', name: 'eclipselink', version: "${eclipselinkVersion}"
+	compile group: 'org.eclipse.persistence', name: 'javax.persistence', version: '2.2.1'
+	runtime group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.jpa.modelgen.processor', version: "${eclipselinkVersion}"
+	compile group: 'org.eclipse.persistence', name: 'org.eclipse.persistence.jpa', version: "${eclipselinkVersion}"
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
+	
+}
+
+ 
+gretty {
+    servletContainer = 'tomcat8'
+    enableNaming = true
+    
+    dependencies {
+		gretty group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: "${tomcatVersion}"
+	}    	
+}

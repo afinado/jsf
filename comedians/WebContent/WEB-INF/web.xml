@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+ 
+	<display-name>Comedians</display-name>
+
+	<context-param>
+		<!-- Damit Kalenderdaten mit GregorianCalendar korrekt sind -->
+		<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+ 	<servlet>
+  		<servlet-name>Faces Servlet</servlet-name>
+  		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+ 	</servlet>
+ 	<servlet-mapping>
+  		<servlet-name>Faces Servlet</servlet-name>
+  		<url-pattern>*.jsf</url-pattern>
+ 	</servlet-mapping>
+
+	<listener> 
+	  	<listener-class>org.jboss.weld.environment.servlet.Listener</listener-class> 
+	</listener>
+
+	<persistence-context-ref>
+		<persistence-context-ref-name>persistence/em</persistence-context-ref-name>
+		<persistence-unit-name>comedians</persistence-unit-name>
+	</persistence-context-ref>
+
+	<resource-ref>
+		<description>resource from context.xml</description>
+		<res-ref-name>jdbc/comedians</res-ref-name>
+		<res-type>java.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<lookup-name>comedians</lookup-name>
+	</resource-ref>
+</web-app>

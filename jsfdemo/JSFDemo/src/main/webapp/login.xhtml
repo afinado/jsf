@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Login Application in JSF 2</title>
+    </h:head>
+    <h:body>
+       <h3>Login Application in JSF 2</h3>
+        <b>#{userLogin.message}</b> <br/><br/>
+		<h:form id="loginForm">
+			<h:outputLabel value="User Name:" />
+			<h:inputText value="#{userLogin.username}" /> <br />
+			<h:outputLabel value="Password:" />
+			<h:inputSecret value="#{userLogin.password}"></h:inputSecret><br/>
+			<h:commandButton value="Submit" action="#{userLogin.login}"></h:commandButton>
+		</h:form>
+    </h:body>
+</html>

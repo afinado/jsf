@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+	<title>Tic Tac Toe</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<h:form>
+		<h:panelGrid columns="3">
+			<h:commandButton id="feld-0" image="#{tttHandler.image[0]}"	actionListener="#{tttHandler.zug}" />
+			<h:commandButton id="feld-1" image="#{tttHandler.image[1]}"	actionListener="#{tttHandler.zug}" />
+			<h:commandButton id="feld-2" image="#{tttHandler.image[2]}"	actionListener="#{tttHandler.zug}" />
+			<h:commandButton id="feld-3" image="#{tttHandler.image[3]}" actionListener="#{tttHandler.zug}" />
+			<h:commandButton id="feld-4" image="#{tttHandler.image[4]}"	actionListener="#{tttHandler.zug}" />
+			<h:commandButton id="feld-5" image="#{tttHandler.image[5]}"	actionListener="#{tttHandler.zug}" />
+			<h:commandButton id="feld-6" image="#{tttHandler.image[6]}"	actionListener="#{tttHandler.zug}" />
+			<h:commandButton id="feld-7" image="#{tttHandler.image[7]}"	actionListener="#{tttHandler.zug}" />
+			<h:commandButton id="feld-8" image="#{tttHandler.image[8]}"	actionListener="#{tttHandler.zug}" />
+		</h:panelGrid>
+		<br />
+		<h:outputText id="meldung" value="#{tttHandler.meldung}" />
+		<br /><br />
+		<h:commandButton value="Neues Spiel" action="#{tttHandler.neuesSpiel}"/>
+	</h:form>	
+</body>
+</html>

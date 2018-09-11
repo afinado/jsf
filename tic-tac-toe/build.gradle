@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'war'
+    id 'org.gretty' version '2.2.0'
+}
+
+
+archivesBaseName = 'tic-tac-toe'
+version = '1' 
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src']
+		}
+	}
+}
+
+webAppDirName = 'WebContent'
+
+repositories {
+	jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile 'com.sun.faces:jsf-api:2.2.18'
+    providedCompile 'com.sun.faces:jsf-impl:2.2.18'
+    compile 'jstl:jstl:1.2'
+    // https://mvnrepository.com/artifact/org.jboss.weld.servlet/weld-servlet
+	compile group: 'org.jboss.weld.servlet', name: 'weld-servlet', version: '3.0.0.Alpha1'         
+    
+}
+ 
+gretty {
+    servletContainer = 'tomcat8'
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+<head>
+	<title>
+		<ui:insert name="title">
+			Default-Title
+		</ui:insert>
+	</title>
+	<link rel="stylesheet" type="text/css" href="calculator.css" />
+</head>
+
+<body>
+<h:form>
+	<div id="calc">
+		<div id="input">
+			<ui:include src="input.xhtml" />
+		</div>
+		<div id="stack">
+			<ui:include src="stack.xhtml" />
+		</div>
+		<div id="keypad">
+			<ui:insert name="keypad">
+				Keypad-Platzhalter
+			</ui:insert>
+		</div>
+		<div id="control">
+			<ui:include src="control.xhtml" />
+		</div>
+		<div id="error">
+			<ui:insert name="error">
+				Fehlermeldungen
+			</ui:insert>
+		</div>
+	</div>
+	<ui:debug />
+</h:form>
+</body>
+</html>

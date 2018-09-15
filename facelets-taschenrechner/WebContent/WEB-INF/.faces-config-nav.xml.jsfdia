@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#pages#nav#hauptseite.jsp"
+  PATH="/pages/nav/hauptseite.jsp" SHAPE="240,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#nav#hauptseite.jsp:0" NAME="item"
+   PATH="/pages/nav/hauptseite.jsp" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID=":#{naviHandler.rot}:#pages#nav#ganzrot.jsp"
+    NAME="output" PATH="/pages/nav/ganzrot.jsp"
+    TARGET="rules:#pages#nav#ganzrot.jsp"
+    TITLE="#{naviHandler.rot}:[any]" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="rot::#pages#nav#rot.jsp" NAME="output1"
+    PATH="/pages/nav/rot.jsp" TARGET="rules:#pages#nav#rot.jsp"
+    TITLE="rot" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="gelb::#pages#nav#gelb.jsp" NAME="output2"
+    PATH="/pages/nav/gelb.jsp" TARGET="rules:#pages#nav#gelb.jsp"
+    TITLE="gelb" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="blau::#pages#nav#blau.jsp" NAME="output3"
+    PATH="/pages/nav/blau.jsp" TARGET="rules:#pages#nav#blau.jsp"
+    TITLE="blau" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="redirect::#pages#nav#ganzrot.jsp"
+    NAME="output4" PATH="/pages/nav/ganzrot.jsp"
+    TARGET="rules:#pages#nav#ganzrot.jsp" TITLE="redirect" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="das buch::#pages#nav#das-buch.jsp"
+    NAME="output5" PATH="/pages/nav/das-buch.jsp"
+    TARGET="rules:#pages#nav#das-buch.jsp" TITLE="das buch" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#nav#*" PATH="/pages/nav/*"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#nav#*:0" NAME="item"
+   PATH="/pages/nav/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="zurück::#pages#nav#hauptseite.jsp"
+    NAME="output" PATH="/pages/nav/hauptseite.jsp"
+    TARGET="rules:#pages#nav#hauptseite.jsp" TITLE="zurück" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#nav#rot.jsp" PATH="/pages/nav/rot.jsp"
+  SHAPE="512,289,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#blau.jsp"
+  PATH="/pages/nav/blau.jsp" SHAPE="512,513,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#gelb.jsp"
+  PATH="/pages/nav/gelb.jsp" SHAPE="512,401,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#das-buch.jsp"
+  PATH="/pages/nav/das-buch.jsp" SHAPE="512,625,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#nav#ganzrot.jsp"
+  PATH="/pages/nav/ganzrot.jsp" SHAPE="512,17,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+<body>
+<ui:composition>
+	
+
+<h:panelGrid columns="1" styleClass="control">
+	<h:commandButton action="#{calc.enter}" value="Enter" styleClass="controlButton" />
+	<h:commandButton action="#{calc.clearInput}" value="Clear Input" styleClass="controlButton" />
+	<h:commandButton action="#{calc.clearStack}" value="Clear Stack" styleClass="controlButton" />
+	<h:commandButton action="#{calc.xy}" value="x &#8596; y" styleClass="controlButton" />
+</h:panelGrid>
+	
+	
+</ui:composition>
+</body>
+</html>

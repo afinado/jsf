@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+<body>
+<ui:composition>
+
+
+<h:panelGrid columns="4" styleClass="keypad">
+	<h:commandButton action="#{calc.subtract}" value="-" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="1" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="2" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="3" styleClass="keypadButton" />
+
+	<h:commandButton action="#{calc.add}" value="+" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="4" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="5" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="6" styleClass="keypadButton" />
+
+	<h:commandButton action="#{calc.multiply}" value="&#215;" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="7" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="8" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="9" styleClass="keypadButton" />
+
+	<h:commandButton action="#{calc.divide}" value="&#247;" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="." styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="0" styleClass="keypadButton" />
+	<h:commandButton actionListener="#{calc.numberInput}" value="-" styleClass="keypadButton" />
+</h:panelGrid>
+<h:messages showDetail="true" />
+		
+		
+</ui:composition>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!--  geht auch ohne HTML -->
+	<ui:composition 
+		xmlns="http://www.w3.org/1999/xhtml"
+      	xmlns:ui="http://java.sun.com/jsf/facelets"
+		template="template.xhtml">
+		<ui:define name="css">
+			<link rel="stylesheet" type="text/css" href="calculator.css" />
+		</ui:define>
+		<ui:define name="title">
+			Taschenrechner
+		</ui:define>
+		<ui:define name="keypad">
+			<ui:include src="keypad.xhtml" />
+		</ui:define>
+		<ui:define name="error">
+			<ui:include src="error.xhtml" />
+		</ui:define>
+	</ui:composition>

@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+<head id="head" jsfc="h:head">
+	<title>Das 'jsfc'-Attribut</title>
+</head>
+<body id="body" jsfc="h:body">
+	<form id="form" jsfc="h:form">
+		<ui:fragment id="fragment">		
+			<link jsfc="h:outputStylesheet" id="outputStyles" name="style.css" />
+			<input type="text" id="inputText" jsfc="h:inputText" value="#{tagHandler.text}" /><br />
+			<input type="submit" id="commandButton" jsfc="h:commandButton" value="Abschicken" action="#{tagHandler.logTree}" />		
+		</ui:fragment>	
+	</form>
+</body>
+</html>

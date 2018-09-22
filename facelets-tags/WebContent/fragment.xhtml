@@ -1,0 +1,13 @@
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html">
+<body>
+	Dieser Text wird nicht ignoriert <br />
+	und damit ist auch das &#60;html&#62;- und &#60;body&#62;-Tag zweimal vorhanden. <br />
+	<ui:fragment binding="#{tagHandler.component}">
+		<h:outputText value="Ein Text" />
+		<br />
+		<h:commandButton value="Ein Button" action="action" />
+	</ui:fragment>
+</body>		
+</html>

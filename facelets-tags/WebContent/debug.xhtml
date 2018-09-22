@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>&#60;ui:debug&#62;</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:outputStylesheet name="style.css" />
+		<ul>
+			<ui:repeat var="data" value="#{tagHandler.digits}" >
+				<li><h:outputText value="#{data}" /></li>
+			</ui:repeat>
+		</ul>
+		<!-- 'rendered' mit EL geht nicht in 2.0.3, nur mit Konstanten -->
+		<ui:debug hotkey="x" rendered="#{not tagHandler.inProduction}" />
+	</h:form>
+</h:body>
+
+</html>

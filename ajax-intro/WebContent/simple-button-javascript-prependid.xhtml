@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Verwendung des prependId-Attributs mit JavaScript</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</h:head>
+<h:body>
+	<h:form id="form" prependId="false">
+		<h:outputScript name="jsf.js" library="javax.faces" target="head"/>
+		<h:panelGrid columns="1">
+			<h:inputText id="in1" value="#{simpleHandler.text1}" />
+			<h:inputText id="in2" value="#{simpleHandler.text2}" />
+			<h:inputText id="in3" value="#{simpleHandler.text3}" />
+			<h:commandButton id="button" value="Button" 
+				onclick="jsf.ajax.request(this, event, {execute: 'form:button form:in1', render: 'form:in2 form:in3'}); return false;" 
+				action="#{simpleHandler.action}" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+
+</html>

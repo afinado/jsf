@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>&#60;f:ajax&#62; als Wrapper um &#60;h:inputText&#62; und &#60;h:commandButton&#62;</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</h:head>
+<h:body>
+	<h:form id="form">
+		<f:ajax execute="form:in1" render="form:in2 form:in3" listener="#{simpleHandler.ajaxBehaviorListener}">  
+			<!--  event="mouseover" listener="#{simpleHandler.ajaxBehaviorListener}" -->
+			<h:panelGrid columns="1">
+				<h:inputText id="in1" value="#{simpleHandler.text1}" />
+				<h:inputText id="in2" value="#{simpleHandler.text2}" />
+				<h:inputText id="in3" value="#{simpleHandler.text3}" />
+				<h:commandButton id="button" value="Replizieren" 
+						action="#{simpleHandler.action}" actionListener="#{simpleHandler.actionListener}">
+				</h:commandButton>
+			</h:panelGrid>
+		</f:ajax>
+	</h:form>
+</h:body>
+
+</html>

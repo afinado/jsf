@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>&#60;f:ajax&#62; für Radio-Button</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</h:head>
+<h:body style="width:300px;">
+	<h:form id="form">
+		<h:panelGrid columns="1">
+			<h:outputText value="Zahlung per" />
+			<h:selectOneRadio value="#{radioHandler.radio}">
+				<!--  geht nicht
+				<f:ajax render="form:einzug form:karte form:rechnung" />
+				 -->
+				<f:ajax render="@form" />
+				<f:selectItem itemValue="1" itemLabel="Bankeinzug"/>
+				<f:selectItem itemValue="2" itemLabel="Kreditkarte"/>
+				<f:selectItem itemValue="3" itemLabel="Rechnung"/>
+			</h:selectOneRadio>
+		</h:panelGrid>
+		<h:panelGrid id="einzug" columns="2" rendered="#{radioHandler.radio == 1}" columnClasses="radiocol1,radiocol2">
+			<h:outputLabel value="Kontoinhaber" />
+			<h:inputText value="#{radioHandler.kontoinhaber}" />
+			<h:outputLabel value="Kontonummer" />
+			<h:inputText value="#{radioHandler.kontonummer}" />
+			<h:outputLabel value="Bankleitzahl" />
+			<h:inputText value="#{radioHandler.blz}" />
+		</h:panelGrid>
+		<h:panelGrid id="karte" columns="2" rendered="#{radioHandler.radio == 2}" columnClasses="radiocol1,radiocol2">
+			<h:outputLabel value="Kreditkarte" />
+			<h:inputText value="#{radioHandler.kkart}" />
+			<h:outputLabel value="gültig bis" />
+			<h:inputText value="#{radioHandler.gueltigBis}" />
+			<h:outputLabel value="Kartennummer" />
+			<h:inputText value="#{radioHandler.nummer}" />
+		</h:panelGrid>
+		<h:panelGrid id="rechnung" columns="2" rendered="#{radioHandler.radio == 3}" columnClasses="radiocol1,radiocol2">
+			<h:outputLabel value="Vor-/Nachname" />
+			<h:inputText value="#{radioHandler.name}" />
+			<h:outputLabel value="Straße Nummer" />
+			<h:inputText value="#{radioHandler.strasseNr}" />
+			<h:outputLabel value="PLZ Ort" />
+			<h:inputText value="#{radioHandler.plzOrt}" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+
+</html>

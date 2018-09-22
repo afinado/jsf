@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'war'
+    id 'org.gretty' version '2.2.0'
+}
+
+ext {
+	eclipselinkVersion = '2.7.3'
+	tomcatVersion = '9.0.11'
+	jsfVersion = '2.2.18'
+	hibernateValidatorVersion = '6.0.8.Final'
+}
+
+archivesBaseName = 'facelets-tags'
+version = '1' 
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src']
+		}
+		resources {
+			srcDirs = ['src']
+		}
+	}
+}
+
+webAppDirName = 'WebContent'
+
+repositories {
+	jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile "com.sun.faces:jsf-api:${jsfVersion}"
+    providedCompile "com.sun.faces:jsf-impl:${jsfVersion}"
+    compile 'jstl:jstl:1.2'
+	compile group: 'org.jboss.weld.servlet', name: 'weld-servlet', version: '3.0.0.Alpha1'         
+	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: "${tomcatVersion}"
+	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: "${tomcatVersion}"
+	compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: "${tomcatVersion}"
+	compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
+			
+}
+
+ 
+gretty {
+    servletContainer = 'tomcat8'
+    enableNaming = true
+    
+    dependencies {
+		gretty group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: "${tomcatVersion}"
+	}    	
+}

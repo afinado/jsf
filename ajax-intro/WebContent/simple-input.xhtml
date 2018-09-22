@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Verwendung des &#60;f:ajax&#62;-Tags</title>
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="1">
+			<h:inputText id="in" value="#{simpleHandler.text1}">
+				
+				<f:ajax listener="#{simpleHandler.ajaxBehaviorListener}"
+					event="mouseout" render="out1 out2" />
+				 
+				<!-- 
+				<f:ajax listener="#{simpleHandler.ajaxBehaviorListener}"
+						render="out1 out2" />
+				-->
+			</h:inputText>
+			<h:outputText id="out1" value="#{simpleHandler.text2}" />
+			<h:outputText id="out2" value="#{simpleHandler.text3}" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+
+</html>

@@ -1,0 +1,7 @@
+new javax.faces.component.html.HtmlInputText().getEventNames()
+new javax.faces.component.html.HtmlInputText().getDefaultEventName()
+
+new javax.faces.component.html.HtmlDataTable().getEventNames()
+new javax.faces.component.html.HtmlDataTable().getDefaultEventName()
+
+new javax.faces.component.html.HtmlCommandButton().getEventNames()

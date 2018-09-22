@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:jp="http://java.sun.com/jsf/composite/jsfpraxis">
+
+	<jp:login-comp salutation="Anmeldung zum Online-Banking" 
+	               loginAction="#{loginHandler.login}"
+	               credentials="#{credentials}">
+		<f:actionListener for="login" type="de.jsfpraxis.MyLogger" />
+		<!-- 
+		<f:actionListener for="action" type="de.jsfpraxis.MyActionListener" />
+		 -->
+	</jp:login-comp>
+
+</html>

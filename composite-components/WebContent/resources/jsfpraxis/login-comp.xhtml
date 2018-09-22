@@ -1,0 +1,48 @@
+<!-- (c) Bernd Müller, www.jsfpraxis.de -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+	<composite:actionSource name="login" targets="form:login" />
+	<!-- 
+	<composite:actionSource name="action" targets="form:action" />
+	 -->
+	<composite:attribute name="loginAction" method-signature="java.lang.String action()" />
+	<composite:attribute name="credentials" />
+	<composite:attribute name="salutation" default="Anmeldung" />
+</composite:interface>
+
+<composite:implementation>
+	<h:head>
+		<title>#{cc.attrs.salutation}</title>
+	</h:head>
+	<h:body>
+		<h:outputStylesheet library="jsfpraxis" name="login-style.css" />
+		<h:form id="form">
+			<div style="font-weight: bold; text-align: center">#{cc.attrs.salutation}</div>
+			<br />
+			<h:panelGrid columns="2">
+				Benutzer
+				<h:inputText id="user" value="#{cc.attrs.credentials.name}" required="true" />
+				Passwort
+				<h:inputSecret id="password" value="#{cc.attrs.credentials.password}" required="true" />
+			</h:panelGrid>
+			<br />
+			<div style="text-align: center">
+				<h:commandLink id="login" action="#{cc.attrs.loginAction}">
+					<h:graphicImage library="jsfpraxis" name="button.png" />
+				</h:commandLink>
+				<!-- 
+				<h:commandButton id="action" action="login-not-ok" value="Abbrechen" />
+				 -->
+			</div>
+		</h:form>
+	</h:body>
+</composite:implementation>
+</html>

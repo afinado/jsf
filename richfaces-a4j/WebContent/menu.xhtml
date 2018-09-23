@@ -1,0 +1,50 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<rich:panel
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout.xhtml">
+
+	<!-- Tooltip als Child eines h:commandButton funktioniert nicht mit FF aber mit IE  
+	-->
+	
+	<h:form>
+		<h:panelGrid columns="1">
+		
+			<h:commandButton id="button1" action="a4j-support" value="&lt;a4j:support&gt;" />
+			<rich:toolTip for="button1">
+				Einfaches Beispiel &lt;a4j:support&gt; und AJAX-Verzögerung
+			</rich:toolTip>
+			
+			<h:commandButton id="button2" action="a4j-support-multiplikation" value="&lt;a4j:support&gt;" />
+			<rich:toolTip for="button2">
+				Beispiel mit Multiplikation für &lt;a4j:support&gt;, Validierung und &lt;a4j:outputPanel&gt;
+			</rich:toolTip>			
+
+			<h:commandButton id="button3" action="a4j-region" value="&lt;a4j:region&gt;" />
+			<rich:toolTip for="button3">
+				Begrenzung der Datenübertragung mit &lt;a4j:region&gt;
+			</rich:toolTip>	
+			
+			<h:commandButton id="button4" action="a4j-commandLink" value="&lt;a4j:commandLink&gt;" />
+			<rich:toolTip for="button4">
+				Einfaches Beispiel für &lt;a4j:commandLink&gt;
+			</rich:toolTip>	
+			
+			<h:commandButton id="button5" action="a4j-poll" value="&lt;a4j:poll&gt;" />
+			<rich:toolTip for="button5">
+				Pollt die aktuelle Zeit auf dem Server.
+			</rich:toolTip>
+			
+			<h:commandButton id="button6" action="a4j-log" value="&lt;a4j:log&gt;" />
+			<rich:toolTip for="button6">
+				Ajax-Logging
+			</rich:toolTip>
+			
+		</h:panelGrid>
+	</h:form>
+</rich:panel>

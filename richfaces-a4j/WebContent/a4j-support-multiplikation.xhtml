@@ -1,0 +1,34 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout.xhtml">
+
+	<ui:define name="header">
+		<div id="header">
+			&lt;a4j:support&gt; mit &lt;a4j:outputPanel&gt;
+		</div>
+	</ui:define>
+
+    <ui:define name="main">
+    	<h:form>
+    	    	Geben Sie eine ganze Zahl ein. <br/> Das 1,5-fache wird neben der Eingabe wiederholt.
+    	    	<br/><br/>
+				<h:inputText id="eingabe" value="#{utilHandler.ganzzahl}" validator="#{utilHandler.validateMinMax}">
+					<a4j:support event="onkeyup" reRender="produkt" />
+				</h:inputText>
+				&nbsp;&nbsp;
+				<h:outputText id="produkt" value="#{utilHandler.ganzzahl * 1.5}" />
+				<br/>
+				
+				<a4j:outputPanel ajaxRendered="true">
+					<h:message for="eingabe" />
+				</a4j:outputPanel>
+		</h:form>
+    </ui:define>
+</ui:composition>

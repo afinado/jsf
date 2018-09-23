@@ -1,0 +1,37 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich"
+    template="layout.xhtml">
+
+	<ui:define name="header">
+		<div id="header">
+			Beispiel &lt;a4j:support process="..." &gt;-Attribut
+		</div>
+	</ui:define>
+
+    <ui:define name="main">
+    	<h:form>
+			<h:outputLabel value="Text 1:" for="text1" />&#160;
+			<h:inputText id="text1" value="#{regionHandler.text1}">
+				<a4j:support event="onkeyup" ajaxSingle="true" reRender="output" process="text3"/>
+			</h:inputText><br/>
+			<h:outputLabel value="Text 2:" for="text2" />&#160;
+			<h:inputText id="text2" value="#{regionHandler.text2}" /><br/>
+			<h:outputLabel value="Text 3:" for="text3" />&#160;
+			<h:inputText id="text3" value="#{regionHandler.text3}" />
+			<br/><br/>
+			Aktualisiert wurden: <br/>
+			<a4j:outputPanel id="output">
+				Text 1: <h:outputText value="#{regionHandler.text1}" /><br/>
+				Text 2: <h:outputText value="#{regionHandler.text2}" /><br/>
+				Text 3: <h:outputText value="#{regionHandler.text3}" /><br/>
+			</a4j:outputPanel>    	
+		</h:form>
+    </ui:define>
+</ui:composition>

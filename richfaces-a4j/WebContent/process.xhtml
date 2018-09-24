@@ -11,7 +11,7 @@
 
 	<ui:define name="header">
 		<div id="header">
-			Beispiel &lt;a4j:support process="..." &gt;-Attribut
+			Beispiel &lt;a4j:ajax process="..." &gt;-Attribut
 		</div>
 	</ui:define>
 
@@ -19,7 +19,7 @@
     	<h:form>
 			<h:outputLabel value="Text 1:" for="text1" />&#160;
 			<h:inputText id="text1" value="#{regionHandler.text1}">
-				<a4j:support event="onkeyup" ajaxSingle="true" reRender="output" process="text3"/>
+				<a4j:ajax event="keyup" ajaxSingle="true" reRender="output" process="text3"/>
 			</h:inputText><br/>
 			<h:outputLabel value="Text 2:" for="text2" />&#160;
 			<h:inputText id="text2" value="#{regionHandler.text2}" /><br/>

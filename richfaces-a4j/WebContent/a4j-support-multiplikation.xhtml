@@ -11,7 +11,7 @@
 
 	<ui:define name="header">
 		<div id="header">
-			&lt;a4j:support&gt; mit &lt;a4j:outputPanel&gt;
+			&lt;a4j:ajax&gt; mit &lt;a4j:outputPanel&gt;
 		</div>
 	</ui:define>
 
@@ -20,7 +20,7 @@
     	    	Geben Sie eine ganze Zahl ein. <br/> Das 1,5-fache wird neben der Eingabe wiederholt.
     	    	<br/><br/>
 				<h:inputText id="eingabe" value="#{utilHandler.ganzzahl}" validator="#{utilHandler.validateMinMax}">
-					<a4j:support event="onkeyup" reRender="produkt" />
+					<a4j:ajax event="keyup" reRender="produkt" />
 				</h:inputText>
 				&nbsp;&nbsp;
 				<h:outputText id="produkt" value="#{utilHandler.ganzzahl * 1.5}" />

@@ -22,7 +22,7 @@
     	    	Durch die Eingabe von 'Strg-Shift-L' öffnet sich das RichFaces Debug-Fenster.
         		<br/><br/><br/>
 				<h:inputText value="#{utilHandler.text}">
-					<a4j:support event="onkeyup" eventsQueue="queue" requestDelay="500" reRender="text" />
+					<a4j:ajax event="keyup" eventsQueue="queue" requestDelay="500" reRender="text" />
 				</h:inputText>
 				&#160;&#160;&#160;
 				<h:outputText id="text" value="#{utilHandler.text}" />

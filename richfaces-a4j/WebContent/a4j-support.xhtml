@@ -11,7 +11,7 @@
 
 	<ui:define name="header">
 		<div id="header">
-			Einfaches Beispiel mit &lt;a4j:support reRender="..." &gt;
+			Einfaches Beispiel mit &lt;a4j:ajax reRender="..." &gt;
 		</div>
 	</ui:define>
 
@@ -21,9 +21,9 @@
         	<br/><br/><br/>
 			<h:inputText value="#{utilHandler.text}">
 				<!-- 
-				<a4j:support event="onkeyup" eventsQueue="queue" requestDelay="500" reRender="text" />
+				<a4j:ajax event="keyup" eventsQueue="queue" requestDelay="500" reRender="text" />
 				 -->
-				<a4j:support event="onkeyup" reRender="text" action="#{utilHandler.ajaxAction}"/>
+				<a4j:ajax event="keyup" reRender="text" action="#{utilHandler.ajaxAction}"/>
 			</h:inputText>
 			&#160;&#160;&#160;
 			<h:outputText id="text" value="#{utilHandler.text}" />

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+
+   <head>
+   	<title>Kundenneuanlage Geburtsdatum</title>
+   	<link rel="stylesheet" href="style.css" type="text/css" />
+   </head>
+   
+   <body>
+   	<h:form>
+   		<f:event listener="#{kundenHandler.checkConversation}" type="preRenderView" />
+   		<h:panelGrid columns="2" headerClass="header">
+   			<f:facet name="header">Bitte Geburtstag eingeben</f:facet>
+   			<h:outputLabel value="Geburtstag:" for="geburtstag" />
+   			<h:panelGroup>
+   				<h:inputText id="geburtstag" value="#{kundenHandler.geburtstag}" required="true" requiredMessage="Bitte Geburtstag eingeben">
+   					<f:convertDateTime pattern="dd.MM.yyyy"/>
+   				</h:inputText>
+   				<h:message for="geburtstag" styleClass="message" />
+   			</h:panelGroup>
+   		</h:panelGrid>
+   		<h:commandButton action="#{kundenHandler.nachname}" value="Zurück" immediate="true" />
+   		<h:commandButton action="#{kundenHandler.anlegen}" value="Abschließen" />
+   		<h:commandButton action="#{kundenHandler.abbrechen}" value="Abbrechen" immediate="true"/>
+   	</h:form>
+   </body>
+   
+</html>

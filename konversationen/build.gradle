@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'eclipse'
+    id 'war'
+    id 'org.gretty' version '2.2.0'
+}
+
+ext {
+	eclipselinkVersion = '2.7.3'
+	tomcatVersion = '9.0.11'
+	jsfVersion = '2.2.18'
+}
+
+archivesBaseName = 'konversationen'
+version = '1' 
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src']
+		}
+		resources {
+			srcDirs = ['src']
+		}
+	}
+}
+
+webAppDirName = 'WebContent'
+
+repositories {
+    mavenCentral()
+	jcenter()
+}
+
+dependencies {
+    compile "com.sun.faces:jsf-api:${jsfVersion}"
+    compile "com.sun.faces:jsf-impl:${jsfVersion}"
+    compile 'jstl:jstl:1.2'
+	providedCompile group: 'javax.ejb', name: 'javax.ejb-api', version: '3.2.2'
+	compile group: 'org.jboss.weld.se', name: 'weld-se', version: '2.4.7.Final'
+	providedCompile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: "${tomcatVersion}"
+	providedCompile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: "${tomcatVersion}"
+	providedCompile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: "${tomcatVersion}"
+}
+
+ 
+gretty {
+    servletContainer = 'tomcat8'
+    enableNaming = true
+    
+    dependencies {
+		gretty group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: "${tomcatVersion}"
+	}    	
+}

@@ -37,13 +37,13 @@ dependencies {
     compile "com.sun.faces:jsf-impl:${jsfVersion}"
     compile 'jstl:jstl:1.2'
 	compile group: 'javax.ejb', name: 'javax.ejb-api', version: '3.2.2'
-	compile group: 'org.jboss.spec.javax.ejb', name: 'jboss-ejb-api_3.2_spec', version: '1.0.1.Final'
-	compile group: 'org.jboss.weld.se', name: 'weld-se', version: '2.4.7.Final'
-	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: "${tomcatVersion}"
-	compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: "${tomcatVersion}"
-	compile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: "${tomcatVersion}"
+	compile group: 'javax.inject', name: 'javax.inject', version: '1'
+	providedCompile group: 'javax.enterprise', name: 'cdi-api', version: '2.0.SP1'
+	providedCompile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: "${tomcatVersion}"
+	providedCompile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: "${tomcatVersion}"
+	providedCompile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: "${tomcatVersion}"
+	compile group: 'org.jboss.weld.servlet', name: 'weld-servlet', version: '3.0.0.Alpha1'
 }
-
  
 gretty {
     servletContainer = 'tomcat8'
@@ -51,5 +51,7 @@ gretty {
     
     dependencies {
 		gretty group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: "${tomcatVersion}"
+		gretty group: 'org.jboss.weld.se', name: 'weld-se', version: '2.4.7.Final'
+		gretty group: 'el-impl', name: 'el-impl', version: '1.0'
 	}    	
 }

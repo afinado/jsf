@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'eclipse'
     id 'war'
-    id 'org.gretty' version '2.2.0'
+    id 'com.bmuschko.cargo' version "2.4"
 }
 
 ext {
@@ -33,8 +33,8 @@ repositories {
 }
 
 dependencies {
-    compile "com.sun.faces:jsf-api:${jsfVersion}"
-    compile "com.sun.faces:jsf-impl:${jsfVersion}"
+	providedCompile group: 'org.apache.myfaces.core', name: 'myfaces-api', version: '2.3.2'
+	providedCompile group: 'org.apache.myfaces.core', name: 'myfaces-impl', version: '2.3.2'
     compile 'jstl:jstl:1.2'
 	compile group: 'javax.ejb', name: 'javax.ejb-api', version: '3.2.2'
 	compile group: 'javax.inject', name: 'javax.inject', version: '1'
@@ -42,16 +42,19 @@ dependencies {
 	providedCompile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: "${tomcatVersion}"
 	providedCompile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: "${tomcatVersion}"
 	providedCompile group: 'org.apache.tomcat', name: 'tomcat-jasper', version: "${tomcatVersion}"
-	compile group: 'org.jboss.weld.servlet', name: 'weld-servlet', version: '3.0.0.Alpha1'
+	compile 'com.bmuschko:gradle-cargo-plugin:2.4'
 }
- 
-gretty {
-    servletContainer = 'tomcat8'
-    enableNaming = true
-    
-    dependencies {
-		gretty group: 'org.apache.tomcat', name: 'tomcat-dbcp', version: "${tomcatVersion}"
-		gretty group: 'org.jboss.weld.se', name: 'weld-se', version: '2.4.7.Final'
-		gretty group: 'el-impl', name: 'el-impl', version: '1.0'
-	}    	
-}
+
+cargo {
+    containerId = 'tomee7x'
+    port = 8080
+
+    deployable {
+        context = 'konversationen'
+    }
+
+    local {
+        homeDir = file('/opt/apache-tomee-webprofile-7.1.0')
+        timeout = 60000
+    }
+} 
